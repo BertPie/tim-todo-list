@@ -11,7 +11,7 @@ import javax.servlet.ServletRegistration;
 
 @Slf4j
 public class WebAppInitializer implements WebApplicationInitializer {
-    private static final String DISPATECHER_SERVLET_NAME = "dispatcher";
+    private static final String DISPATCHER_SERVLET_NAME = "dispatcher";
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
@@ -20,7 +20,7 @@ public class WebAppInitializer implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.register(WebConfig.class);
         DispatcherServlet dispatcherServlet = new DispatcherServlet(context);
-        ServletRegistration.Dynamic registration = servletContext.addServlet(DISPATECHER_SERVLET_NAME, dispatcherServlet);
+        ServletRegistration.Dynamic registration = servletContext.addServlet(DISPATCHER_SERVLET_NAME, dispatcherServlet);
         registration.setLoadOnStartup(1);
         registration.addMapping("/");
     }

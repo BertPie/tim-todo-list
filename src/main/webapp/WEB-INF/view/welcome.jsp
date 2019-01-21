@@ -5,9 +5,8 @@
 </head>
 
 <body>
-
-<h1>Hello world!!!</h1>
-
+    <h1>${welcomeUser}</h1>
+    <h2>${welcomeMessage}</h2>
 </body>
 
 </html>
