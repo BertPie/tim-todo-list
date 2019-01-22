@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pie.bert.service.DemoService;
 
@@ -27,8 +28,9 @@ public class DemoController {
     }
 
     @GetMapping("welcome")
-    public String welcome(Model model){
-        model.addAttribute("welcomeUser", demoService.getHelloMessage("Kuki"));
+    public String welcome(@RequestParam String user, @RequestParam int age, Model model){
+        model.addAttribute("welcomeUser", demoService.getHelloMessage(user));
+        model.addAttribute("age", age);
         log.info("model = {}", model);
 
         return "welcome";
