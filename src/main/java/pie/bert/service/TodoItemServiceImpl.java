@@ -31,6 +31,6 @@ public class TodoItemServiceImpl implements TodoItemService {
 
     @Override
     public TodoDao getData() {
-        return new TodoDao();
+        return todoDao;
     }
 }

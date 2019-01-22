@@ -1,6 +1,7 @@
 package pie.bert.model;
 
 import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 
+@Slf4j
 public class TodoDao {
 
     private static int idValue = 1;
@@ -26,6 +28,7 @@ public class TodoDao {
 
     public void addItem(@NonNull TodoItem toAdd){
         toAdd.setId(idValue);
+        log.info("Adding item: {}", toAdd);
         items.add(toAdd);
         idValue++;
     }
